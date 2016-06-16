@@ -1,0 +1,78 @@
+Quelques pistes de réfléxions pour aller plus loin.......et pour votre curiosité :)
+
+  * Quelle est la différence entre include et require en PHP?
+   Criticité d'erreur n'est pas la même: mieux vaut utiliser include que require
+
+  * Que signifie instead of ? Pourquoi l'utiliser en Orienté Objet? Décrivez un exemple ... ???
+
+  + insteadof permet de controler une instance / objet est en provenance d'une classe
+
+  * Que signifie le "===" en Orienté Objet? Décrivez le en 1 exemple
+		 == ou ===
+     === c'est  pour comparer le type/ la nature de mes 2 variables comparées
+
+
+      $objetDVD = new Dvd();
+
+      $objetBlueRay = new BlueRay();
+
+      $objetDVD === $objetBlueRay; = Faux
+
+      123 == "123"
+
+      "123" === 123
+
+      123.0 === 123
+
+	* Qu'est ce qu'une composition d'objet? En a-t-on deja utilisé dans le miniprojet? Si oui, où?
+
+  -> Attribut connexion de ma classe Movie
+
+  + Quand une classe a des attributs qui sont des objets d'autre classe
+  " Quand il y a un ou plusieurs objets dans un meme objet"
+
+
+
+  * Qu'est ce qu'un sous-namespace ? Décrivez le en 1 exemple...
+  C'est un namespace avec des sous-namespace (dossier/sous-dossier)
+  exemple:
+
+  use src\lib\Movie;
+
+
+	* Peut-on créer un objet B provenant d'une classe B dans une classe A?
+  Oui, mais à éviter: C'est une dépendance forte entre les classes (à privilégier l'injection d'objet)
+
+  class A{
+
+      public function toto(){
+        $obj = new B();
+      }
+  }
+
+  class B {
+
+
+  }
+
+  * Quelle est la différence entre classe et classe abstraite?
+
+  * Quelle est la différence entre classe et classe abstraite?
+
++ C'est une classe qui ne peut créer des objets. Elle sert uniquement à etre héritée.
+La classe abstraite ne peut pas hérité d'une autre classe.
+
+abstract class Humain{
+  protected $nom;
+  protected $prenom;
+}
+
+class Personnel extends Humain{ }
+
+
+  * Que signifie S.O.L.I.D.? A quoi ça sert dans l'Orienté Objet?
+  * Qu'est ce que l'Injection des Dépendances? Décrivez 1 exemple
+  * Qu'est ce qu'un Design Pattern? Citez-en 2 en exemple
+  * Qu'est ce que le MVC? A quoi ça sert en Orienté Objet?
+  * Qu'est ce que Composer? A quoi cela va nous servir dans notre projet?
+  * Qu'est ce qu'un trait ?
