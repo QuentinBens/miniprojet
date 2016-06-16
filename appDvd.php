@@ -4,10 +4,13 @@ include "header.php";
 include "src/Connexion.php";
 include "src/Movies.php";
 include "src/Dvd.php";
+include "src/Blueray.php";
 include "src/DvdRom.php";
 
 use src\Connexion;
+use src\Movies;
 use src\Dvd;
+use src\Blueray;
 use src\DvdRom;
 
 $connectDvd = new Connexion("localhost", "cinemal9", "root", "troiswa");
@@ -56,10 +59,43 @@ $dvdFive = new Dvd("New line cinema", $connectDvd);
   $dvdFive->setBudget(170000000);
 
 
-
   $tabDvd = [$dvdOne, $dvdTwo, $dvdThree, $dvdFour, $dvdFive];
-  $tabDvdThree = [$dvdFour, $dvdTwo, $dvdThree] ?>
+  $tabDvdThree = [$dvdFour, $dvdTwo, $dvdThree] ;
 
+$dvdRom = new DvdRom($connectDvd, "#EEAA66");
+  $dvdRom->setPrix(40000);
+  $dvdRom->setFabriquant("Sony");
+  $dvdRom->setDiametres("10");
+  $dvdRom->setPoid(15);
+  $dvdRom->setTitle("Le Requin Marteau");
+  $dvdRom->setSynopsis("Description du film Le Requin Marteau");
+$dvdRomTwo = new DvdRom($connectDvd, "#EE7766");
+  $dvdRomTwo->setPrix(40000);
+  $dvdRomTwo->setFabriquant("Sony");
+  $dvdRomTwo->setDiametres("10");
+  $dvdRomTwo->setPoid(15);
+  $dvdRomTwo->setTitle("Le Requin Marteau");
+  $dvdRomTwo->setSynopsis("Description du film Le Requin Marteau");
+$dvdRomThree = new DvdRom($connectDvd, "#993399");
+  $dvdRomThree->setPrix(40000);
+  $dvdRomThree->setFabriquant("Sony");
+  $dvdRomThree->setDiametres("10");
+  $dvdRomThree->setPoid(15);
+  $dvdRomThree->setTitle("Le Requin Marteau");
+  $dvdRomThree->setSynopsis("Description du film Le Requin Marteau"); ?>
+
+<?php $tabDvdRom = [$dvdRom, $dvdRomTwo, $dvdRomThree]; ?>
+
+<?php
+
+$blueRay = new Blueray($connectDvd);
+$blueRay->setTitle('La Vallé Bleue');
+$blueRay->setSynopsis('Description de La Vallé Bleue');
+$blueRay->setPrix(1000);
+$blueRay->setFabriquant("Sony");
+$blueRay->setDiametres("10");
+$blueRay->setPoid(15);
+$blueRay->modifPrix(100, 25); ?>
 
 <div class="panel panel-danger">
   <div class="panel-heading">
@@ -73,7 +109,13 @@ $dvdFive = new Dvd("New line cinema", $connectDvd);
         Dvd::insertThreeDvdInDb($value, 0);
       }
     ?></div>
-
+    <div>J'affiche les nombre de mot de mes synopsis :
+      <?php foreach ($tabDvdRom as $value) {
+        echo "<b>{$value->nbWordSynopsis()}</b>";
+      } ?>
+    </div>
+    <div>Ici je modifie mon prix selon deux parametre promotion et reduction : <?php $blueRay->modifPrix(100, 5) ?></div>
+    <div><?php var_dump(Movies::dateReleaseYear($blueRay)) ?></div>
   </div>
 
 </div>

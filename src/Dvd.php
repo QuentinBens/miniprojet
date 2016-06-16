@@ -5,28 +5,23 @@ namespace src;
 class Dvd extends Movies
 {
 
-protected $prix;
 protected $taxe = 19.6;
 protected $capacity;
-protected $fabriquant;
-protected $diametres;
-protected $poid;
 protected $coucheDouble;
 
 
 
+public function __construct($distributor, Connexion $connexion){
 
-
-
-  /**
-   * Get the value of Prix
-   *
-   * @return mixed
-   */
-  public function getPrix()
-  {
-      return $this->prix;
+  if($connexion){
+    $this->connexion = $connexion->connectDb();
   }
+  parent::__construct($distributor, $connexion);
+
+}
+
+
+  
 
   /**
    * Get the value of Taxe
@@ -36,71 +31,6 @@ protected $coucheDouble;
   public function getTaxe()
   {
       return $this->taxe;
-  }
-
-  /**
-   * Get the value of Capacity
-   *
-   * @return mixed
-   */
-  public function getCapacity()
-  {
-      return $this->capacity;
-  }
-
-  /**
-   * Get the value of Fabriquant
-   *
-   * @return mixed
-   */
-  public function getFabriquant()
-  {
-      return $this->fabriquant;
-  }
-
-  /**
-   * Get the value of Diametres
-   *
-   * @return mixed
-   */
-  public function getDiametres()
-  {
-      return $this->diametres;
-  }
-
-  /**
-   * Get the value of Poid
-   *
-   * @return mixed
-   */
-  public function getPoid()
-  {
-      return $this->poid;
-  }
-
-  /**
-   * Get the value of Couche Double
-   *
-   * @return mixed
-   */
-  public function getCoucheDouble()
-  {
-      return $this->coucheDouble;
-  }
-
-
-  /**
-   * Set the value of Prix
-   *
-   * @param mixed prix
-   *
-   * @return self
-   */
-  public function setPrix($prix)
-  {
-      $this->prix = $prix;
-
-      return $this;
   }
 
   /**
@@ -118,6 +48,16 @@ protected $coucheDouble;
   }
 
   /**
+   * Get the value of Capacity
+   *
+   * @return mixed
+   */
+  public function getCapacity()
+  {
+      return $this->capacity;
+  }
+
+  /**
    * Set the value of Capacity
    *
    * @param mixed capacity
@@ -132,45 +72,13 @@ protected $coucheDouble;
   }
 
   /**
-   * Set the value of Fabriquant
+   * Get the value of Couche Double
    *
-   * @param mixed fabriquant
-   *
-   * @return self
+   * @return mixed
    */
-  public function setFabriquant($fabriquant)
+  public function getCoucheDouble()
   {
-      $this->fabriquant = $fabriquant;
-
-      return $this;
-  }
-
-  /**
-   * Set the value of Diametres
-   *
-   * @param mixed diametres
-   *
-   * @return self
-   */
-  public function setDiametres($diametres)
-  {
-      $this->diametres = $diametres;
-
-      return $this;
-  }
-
-  /**
-   * Set the value of Poid
-   *
-   * @param mixed poid
-   *
-   * @return self
-   */
-  public function setPoid($poid)
-  {
-      $this->poid = $poid;
-
-      return $this;
+      return $this->coucheDouble;
   }
 
   /**
@@ -241,6 +149,8 @@ public static function insertThreeDvdInDb(Dvd $dvdObject, $send = 0){
     echo "<b>It's SEND  ! </b>";
   }
 } // END function insertThreeDvdInDb
+
+
 
 
 

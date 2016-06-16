@@ -13,6 +13,12 @@ protected $visibility = true;
 protected $distributor;
 protected $connectDb;
 protected $id;
+protected $prix;
+
+protected $diametres;
+protected $poid;
+protected $fabriquant;
+
 const VERSION = "1.0";
 
 // ========================CONSTRUCT===========================
@@ -37,6 +43,18 @@ const VERSION = "1.0";
 
 
 // ========================GETTER=============================
+
+/**
+ * Get the value of Prix
+ *
+ * @return mixed
+ */
+public function getPrix()
+{
+    return $this->prix;
+}
+
+
 
 
 /**
@@ -123,7 +141,70 @@ public function getId(){
 
   return $this->id;
 }
+
+/**
+ * Get the value of Diametres
+ *
+ * @return mixed
+ */
+public function getDiametres()
+{
+    return $this->diametres;
+}
+
+
+/**
+ * Get the value of Poid
+ *
+ * @return mixed
+ */
+public function getPoid()
+{
+    return $this->poid;
+}
+
+/**
+ * Get the value of Fabriquant
+ *
+ * @return mixed
+ */
+public function getFabriquant()
+{
+    return $this->fabriquant;
+}
+
+/**
+ * Set the value of Connect Db
+ *
+ * @param mixed connectDb
+ *
+ * @return self
+ */
+public function setConnectDb($connectDb)
+{
+    $this->connectDb = $connectDb;
+
+    return $this;
+}
+
+
 // ========================SETTERconnectDb===========================
+//
+
+/**
+ * Set the value of Prix
+ *
+ * @param mixed prix
+ *
+ * @return self
+ */
+public function setPrix($prix)
+{
+    $this->prix = $prix;
+
+    return $this;
+}
+
 /**
  * permet changer la valeur de l'attribut de l'object courant
  * @return title
@@ -216,6 +297,51 @@ public function setGetConnectDb($connectDb){
 public function setId($id){
 
   return $this->id = $id;
+}
+
+/**
+ * Set the value of Diametres
+ *
+ * @param mixed diametres
+ *
+ * @return self
+ */
+public function setDiametres($diametres)
+{
+    $this->diametres = $diametres;
+
+    return $this;
+}
+
+
+
+/**
+ * Set the value of Poid
+ *
+ * @param mixed poid
+ *
+ * @return self
+ */
+public function setPoid($poid)
+{
+    $this->poid = $poid;
+
+    return $this;
+}
+
+
+/**
+ * Set the value of fabriquant
+ *
+ * @param mixed fabriquant
+ *
+ * @return self
+ */
+public function setFabriquant($fabriquant)
+{
+    $this->fabriquant = $fabriquant;
+
+    return $this;
 }
 // ========================Function d'accés==================
 
@@ -545,6 +671,27 @@ public function setId($id){
 
  }
 
+ public function modifPrix($promotion = 0, $reduction = 0){
+
+    if($promotion != 0){
+
+      $this->prix = $this->prix - $promotion;
+    }
+
+    if($reduction!=0) {
+
+      $this->prix = $this->prix - (($this->prix * $reduction) / 100);
+    }
+}
+
+public static function dateReleaseYear(Movies $object){
+
+  $dateObject = new \DateTime($object->dateRelease);
+  $dateNow = new \DateTime("now");
+  
+  return $dateObject->format("Y") == $dateNow->format("Y");
+
+}
 
 
 
