@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="list-group table-of-contents">
+      <a href="index.php" class="list-group-item">Home</a>
+      <a href="#pCategory" class="list-group-item">Pages des catégories</a>
+      <a href="#pReal" class="list-group-item">Page des réalisateurs</a>
+      <a href="#pActeur" class="list-group-item">Page des acteurs</a>
+      <a href="#pComments" class="list-group-item">Page des commentaires</a>
+      <a href="contact.php" class="list-group-item">Page des contacts</a>
+    </div>
+  </div>
+  <?php include "blocstat.php"; ?>
+</div>

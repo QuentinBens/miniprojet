@@ -1,0 +1,49 @@
+body div.container h1 {
+  text-align: center;
+}
+
+#flexalign {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+#ville {
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+
+iframe {
+  width: 350px;
+  height: auto;
+}
+
+div#sixmovies p img {
+  width: 75px;
+  height: auto;
+  float: left;
+  margin-right: 5px;
+  padding-top: 5px;
+
+}
+#categoryFlex {
+  display: flex;
+  flex-direction : column;
+}
+#categoryFlex div {
+  display: flex;
+}
+#flex {
+  display: flex;
+  justify-content: space-around;
+}
+#flex > div {
+  flex-direction: column;
+  display: flex;
+  text-align: center;
+
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
