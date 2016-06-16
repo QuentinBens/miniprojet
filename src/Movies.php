@@ -1,6 +1,7 @@
 <?php
 namespace src;
 
+use \DateTime;
 class Movies {
 
 
@@ -688,12 +689,38 @@ public static function dateReleaseYear(Movies $object){
 
   $dateObject = new \DateTime($object->dateRelease);
   $dateNow = new \DateTime("now");
-  
+
   return $dateObject->format("Y") == $dateNow->format("Y");
 
 }
 
+public function countMonthBetweenMovies(Movies $movieOne, Movies $movieTwo ){
 
+  $dateMovieOne = DateTime::createFromFormat('Y-m-d', $movieOne->dateRelease);
+  $dateMovieTwo = DateTime::createFromFormat('Y-m-d', $movieTwo->dateRelease);
+  $interval = date_diff($dateMovieOne, $dateMovieTwo);
+  $diffMois = $interval->format('%M') + ($interval->format('%Y') * 12);
+
+return $diffMois. " Mois";
+}
+
+public static function prixTotal($tab = []){
+
+  $addition = 0;
+  $datetime = new \DateTime("-2 day");
+  $date = $datetime->format('Y-m-d');
+
+  foreach ($tab as $value) {
+
+    if($value->dateRelease < $date){
+
+    $addition += $value->prix;
+
+    }
+
+  }
+  return $addition ;
+}
 
 
 

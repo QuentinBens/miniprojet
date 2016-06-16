@@ -76,14 +76,16 @@ $dvdRomTwo = new DvdRom($connectDvd, "#EE7766");
   $dvdRomTwo->setPoid(15);
   $dvdRomTwo->setTitle("Le Requin Marteau");
   $dvdRomTwo->setSynopsis("Description du film Le Requin Marteau");
+  $dvdRomTwo->setDateRelease("2015-03-15");
+
 $dvdRomThree = new DvdRom($connectDvd, "#993399");
   $dvdRomThree->setPrix(40000);
   $dvdRomThree->setFabriquant("Sony");
   $dvdRomThree->setDiametres("10");
   $dvdRomThree->setPoid(15);
   $dvdRomThree->setTitle("Le Requin Marteau");
-  $dvdRomThree->setSynopsis("Description du film Le Requin Marteau"); ?>
-
+  $dvdRomThree->setSynopsis("Description du film Le Requin Marteau");
+  $dvdRomThree->setDateRelease("2014-02-15"); ?>
 <?php $tabDvdRom = [$dvdRom, $dvdRomTwo, $dvdRomThree]; ?>
 
 <?php
@@ -116,6 +118,8 @@ $blueRay->modifPrix(100, 25); ?>
     </div>
     <div>Ici je modifie mon prix selon deux parametre promotion et reduction : <?php $blueRay->modifPrix(100, 5) ?></div>
     <div><?php var_dump(Movies::dateReleaseYear($blueRay)) ?></div>
+    <div>La différence entre mes des objets est: <?php echo Movies::countMonthBetweenMovies($dvdRomTwo, $dvdRomThree) ?></div>
+    <div>Le total en euros des film ssorties il y à plus de deux jours est de : <?php echo Movies::prixTotal([$dvdRomOne, $dvdRomTwo, $dvdRomThree, $blueray]) ?> </div>
   </div>
 
 </div>
