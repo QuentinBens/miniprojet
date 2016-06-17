@@ -1,11 +1,23 @@
 <?php
+include "vendor/autoload.php";
+use Dompdf\Dompdf;
+
+
+// instantiate and use the dompdf class
+$dompdf = new Dompdf();
+$dompdf->loadHtml("tf");
+
+// (Optional) Setup the paper size and orientation
+$dompdf->setPaper('A4', 'landscape');
+
+// Render the HTML as PDF
+$dompdf->render();
+
+// Output the generated PDF to Browser
+$dompdf->stream();
 
 include "header.php";
-include "src/Connexion.php";
-include "src/Movies.php";
-include "src/Dvd.php";
-include "src/Blueray.php";
-include "src/DvdRom.php";
+
 
 use src\Connexion;
 use src\Movies;
@@ -120,6 +132,8 @@ $blueRay->modifPrix(100, 25); ?>
     <div><?php var_dump(Movies::dateReleaseYear($blueRay)) ?></div>
     <div>La différence entre mes des objets est: <?php echo Movies::countMonthBetweenMovies($dvdRomTwo, $dvdRomThree) ?></div>
     <div>Le total en euros des film ssorties il y à plus de deux jours est de : <?php echo Movies::prixTotal([$dvdRomOne, $dvdRomTwo, $dvdRomThree, $blueray]) ?> </div>
+
+
   </div>
 
 </div>

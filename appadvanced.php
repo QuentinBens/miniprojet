@@ -1,12 +1,7 @@
 <?php
+include "vendor/autoload.php";
+
 include "header.php";
-include "src/Personnel.php";
-include "src/Acteur.php";
-include "src/Director.php";
-include "src/ActeurSerie.php";
-include "src/ActeurFilm.php";
-include "src/Movies.php";
-include "src/Connexion.php";
 
 use src\Acteur;
 use src\Director;

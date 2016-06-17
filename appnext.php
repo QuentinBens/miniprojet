@@ -1,10 +1,7 @@
 <?php
+include "vendor/autoload.php";
+
 include "header.php";
-include "src/Connexion.php";
-include "src/Movies.php";
-include "src/Acteur.php";
-include "src/Director.php";
-include "src/Session.php";
 include "lib/Connexion.php";
 
 use src\Connexion as ConnexionSrc;

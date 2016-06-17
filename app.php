@@ -1,4 +1,5 @@
 <?php
+include "vendor/autoload.php";
 
 // J'inclue ma classe (un fichier = une class)
 

@@ -70,7 +70,127 @@ abstract class Humain{
 class Personnel extends Humain{ }
 
 
-  * Que signifie S.O.L.I.D.? A quoi ça sert dans l'Orienté Objet?
+* Que signifie S.O.L.I.D.? A quoi ça sert dans l'Orienté Objet?
+S.O.L.I.D.
+
+          S: Principe de responsabilité unique: Une classe fait un seul métier (logique métier). (ne pas avoir 3000 lignes de codes)
+          O: Open/Close: Qui reste ouvert a la création, fermer a la modification (Classe)
+
+          Quand une classe a des methodes ou des attributs que je veu modifier,
+          il vaut mieux passer par l'héritage pour surcharger(modifier) le comportement
+          de certains attributs ou méthodes.
+          Fermé a la modification, ouvert à l'extension.
+
+          class Alpha{
+          public function mail($sujet, $contenu, $destinataire){
+          }
+          }
+          class Beta extends Alpha{
+          public function mail($sujet, $contenu, $destinataire){
+            // autre chose
+          }
+          }
+          $obj = new Beta();
+          $obj->mail($sujet, $contenu...)
+
+
+
+          L: Principe de substitution de Liskov
+
+          class Alpha{
+
+          public function mail($sujet, $contenu, $destinataire){
+          // envoyer un mail
+          }
+
+          }
+
+          class Beta extends Alpha{
+
+
+          public function mail($sujet, $contenu,
+              $destinataire, $html = true,
+              $protocols = []){
+              // autre chose : envoi de mail
+              // + insert dans ma bdd
+          }
+
+
+          public function mailOther($sujet, $contenu,
+            $destinataire, $html = true,
+            $protocols){
+          // autre chose : envoi de mail
+          // + insert dans ma bdd
+          }
+
+          }
+
+
+
+          $obj2 = new Beta();
+          $obj2->mail("Il fait beau aujourd'hui" ,
+                  "Super, tous au Parc");
+
+          $obj = new Beta();
+          $obj->mail("Il fait beau aujourd'hui",
+                  "Super, tous au Parc");
+
+
+          C'est pouvoir remplacer un objet B issue d'une classe fille, par un objet A issue d'une classe mere
+          Sans casser la compatibilité des méthodes.
+
+
+          I: Principe de ségrégation d'interfaces
+
+          Interface:
+
+          + C'est une abstraction de signatures de methodes en communs avec diverses classes.
+          + C'est un sommaire(resumé) de méthodes pour homogéniser des comportements entre les classes
+
+          ségrégation d'interfaces:
+
+          + Pour homogénéiser plusieurs classes, et ne pas avoir de classes Parents(par héritage)
+          je peux séparer certains comportements entre les classes dans 1 ou plusieurs interfaces.
+          Par ailleurs, cela procure plus de souplesse dans les arguments de méthodes.
+
+
+          exemple: La gestion de Visibilité entre une Catégorie, Un Movie, Un Commentaire
+
+
+          public static function gestionVisibilite(VisibleInterface $obj){
+
+            // gerer la visibilité
+            // objet, quelque soit la provenance de ma classe
+            // a un comportement suffisant pour etre implémenter dans cette methode
+          }
+
+
+          D: Principe d'injection de dépendance
+
+
+          Couplage faible: Il vaut mieux injecter en paramètre un objet issue d'une autre classe (injection de dépendances)
+                            dans une méthode. (différente du couplage fort).
+                            Injecter des objets de provenance de différentes classe dans mes méthodes de classe.
+
+            $volant = new Volant();
+            $pneus = new Pneus();
+            $pneusTwo = new Pneus();
+            $pneusThree = new Pneus();
+            $pneusFour = new Pneus();
+            $voiture = new Voiture();
+
+          class Voiture{
+
+            public function __construct(
+              Volant $volant,
+              Pneus $pneus,
+              Pneus $pneusTwo,
+              Pneus $pneusThree,
+              Pneus $pneusFour){
+            }
+          }
+
+
   * Qu'est ce que l'Injection des Dépendances? Décrivez 1 exemple
   * Qu'est ce qu'un Design Pattern? Citez-en 2 en exemple
   * Qu'est ce que le MVC? A quoi ça sert en Orienté Objet?

@@ -1,9 +1,9 @@
 <?php
+include "vendor/autoload.php";
+
 include "header.php";
 
 // J'inclue ma classe (un fichier = une class)
-include "src/Connexion.php";
-include "src/Movies.php";
 
 
 $connexionPdo = new Connexion("localhost", "cinemal9", "root", "troiswa");
@@ -56,8 +56,9 @@ $moviesFour = new Movies("Distributeur de mon film", $connexionPdo, 5);
   $moviesFour->setDistributor("WarnerBros");
 
 // Je crée mon tableau d'object
-$tabObject = [$moviesOne, $moviesTwo, $moviesThree, $moviesFour ]; ?>
+$tabObject = [$moviesOne, $moviesTwo, $moviesThree, $moviesFour ];
 
+dump($tabObject); ?>
 <div class='panel panel-primary'>
 
   <div class='panel-heading'>
