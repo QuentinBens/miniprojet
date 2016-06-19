@@ -21,10 +21,6 @@ class ComposerStaticInited467023539e66a2d9c6b2310b75a218
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\VarDumper\\' => 28,
         ),
-        'D' => 
-        array (
-            'Dompdf\\' => 7,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -40,40 +36,10 @@ class ComposerStaticInited467023539e66a2d9c6b2310b75a218
         array (
             0 => __DIR__ . '/..' . '/symfony/var-dumper',
         ),
-        'Dompdf\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
-        ),
     );
 
     public static $fallbackDirsPsr4 = array (
         0 => __DIR__ . '/../..' . '/',
-    );
-
-    public static $prefixesPsr0 = array (
-        'S' => 
-        array (
-            'Svg\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src',
-            ),
-        ),
-        'F' => 
-        array (
-            'FontLib\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/phenx/php-font-lib/src',
-            ),
-        ),
-    );
-
-    public static $classMap = array (
-        'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
-        'HTML5_Data' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Data.php',
-        'HTML5_InputStream' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/InputStream.php',
-        'HTML5_Parser' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Parser.php',
-        'HTML5_Tokenizer' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
-        'HTML5_TreeBuilder' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -82,8 +48,6 @@ class ComposerStaticInited467023539e66a2d9c6b2310b75a218
             $loader->prefixLengthsPsr4 = ComposerStaticInited467023539e66a2d9c6b2310b75a218::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInited467023539e66a2d9c6b2310b75a218::$prefixDirsPsr4;
             $loader->fallbackDirsPsr4 = ComposerStaticInited467023539e66a2d9c6b2310b75a218::$fallbackDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInited467023539e66a2d9c6b2310b75a218::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInited467023539e66a2d9c6b2310b75a218::$classMap;
 
         }, null, ClassLoader::class);
     }

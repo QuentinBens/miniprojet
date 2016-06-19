@@ -30,11 +30,7 @@ const VERSION = "1.0";
    */
   public function __construct($distributor, Connexion $connectPDO = null, $id= null){
 
-    if ($dateY == "") {
-       $this->year = date('Y');
-    }else{
-      $this->year = $dateY;
-    }
+
       $this->id = $id;
       $this->distributor = $distributor;
       //j'initialise ma connexion à la base de données
@@ -449,6 +445,7 @@ public function setFabriquant($fabriquant)
   public function tabMoyenneMoviesInfOneM($tabObject){
     if(is_array($tabObject)){
       $i = 0;
+      $total = 0;
       foreach ($tabObject as $key => $value) {
         if ($value->budget < 5000000) {
           $i ++;
@@ -502,7 +499,7 @@ public function setFabriquant($fabriquant)
     LIMIT 3
     ");
 
-    return $req->fetchAll(PDO::FETCH_ASSOC);
+    return $req->fetchAll(\PDO::FETCH_ASSOC);
 
 
   }// fin de function selectThreeMoviesFr
@@ -560,7 +557,7 @@ public function setFabriquant($fabriquant)
     $req->execute([
       'id' => $id,
       'title' => $movie->title,
-      'year' => $movie->annee,
+      'year' => $movie->year,
       'budget' => $movie->budget,
     ]);
 

@@ -1,8 +1,10 @@
 <?php
-include "vendor/autoload.php";
-
 include "header.php";
 
+include "vendor/autoload.php";
+
+use src\Connexion;
+use src\Movies;
 // J'inclue ma classe (un fichier = une class)
 
 
@@ -135,7 +137,7 @@ echo
           <h4>CONNEXION ONE TEST</h4>
         </div>
         <div class="panel-body">
-          <?php echo $connexion->info(); ?>
+          <?php echo $connexionPdo->info(); ?>
         </div> <!--fin panel body-->
       </div> <!--fin panel-->
     </div> <!--fin col-->
@@ -182,7 +184,7 @@ $connexionTwo->setTimeout(42);
   $connexionThree->setTimeout(43);
 
   $tabInfo = [
-    $connexion,
+    $connexionPdo,
     $connexionTwo,
     $connexionThree
   ];
@@ -204,9 +206,9 @@ $connexionTwo->setTimeout(42);
     </div> <!--fin col-->
   </div> <!--fin row -->
 
-<?php echo $connexion->showCol(12);
+<?php echo $connexionPdo->showCol(12);
 
-if($connexion->compareObject($connexionTwo) == true) {
+if($connexionPdo->compareObject($connexionTwo) == true) {
   echo "<div class='jumbotron'><p class='text-success'>TRUE</p></div>";
 
 } else {

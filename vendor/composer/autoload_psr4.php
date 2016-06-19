@@ -9,6 +9,5 @@ return array(
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Component\\VarDumper\\' => array($vendorDir . '/symfony/var-dumper'),
-    'Dompdf\\' => array($vendorDir . '/dompdf/dompdf/src'),
     '' => array($baseDir . '/'),
 );
